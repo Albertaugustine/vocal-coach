@@ -1,0 +1,83 @@
+:root {
+  --bg-dark: #12091c;
+  --bg-gradient: radial-gradient(circle at top, #2d1645, #12091c);
+  --accent-gold: #f59e0b;
+  --accent-orange: #f97316;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70% { box-shadow: 0 0 0 20px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Utility classes to avoid importing Tailwind */
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.gap-4 { gap: 1rem; }
+.p-8 { padding: 2rem; }
+.text-center { text-align: center; }
+.text-gold { color: var(--accent-gold); }
+.text-orange { color: var(--accent-orange); }
+.text-2xl { font-size: 1.5rem; }
+.text-4xl { font-size: 2.25rem; font-weight: 800; }
+.font-bold { font-weight: 600; }
+.w-full { width: 100%; }
+.mt-8 { margin-top: 2rem; }
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+  border: none;
+  border-radius: 9999px;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
